@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}About{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
+
+{% block body_block %}
+
+
+<section>
+	        
+				{% if updated %}
+				<strong>Your profile was updated.</strong>
+				<a href="/rango/">Return to the homepage.</a><br />
+				{% endif %}
+				{% if not updated %}
+				<strong>Your profile was not updated.</strong>
+
+    <form id="user_form" method="post" action="/rango/edit_profile/"
+            enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <!-- Display each form. The as_p method wraps each element in a paragraph
+             (<p>) element. This ensures each element appears on a new line,
+             making everything look neater. -->
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+
+        <!-- Provide a button to click to submit the form. -->
+        <input type="submit" name="submit" value="Register" />
+    </form>
+    {% endif %}
+
+
+            <form class="form-horizontal" method="post" enctype="multipart/form-data" action="/rango/edit_profile/">
+            	{% csrf_token %}
+                <fieldset>
+ 
+                    <!-- Form Name -->
+                  <legend>Edit Profile</legend>
+                    
+                    {% csrf_token %}
+                  <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle">Profile Name</label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="name" type="text" placeholder="Title" class="form-control input-md" value="{{ user.username }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle">Password</label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="password" type="text" placeholder="Title" class="form-control input-md" value="{{ user.password }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle">Email</label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="email" type="text" placeholder="Title" class="form-control input-md" value="{{ user.email }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle">Website</label>
+                        <div class="col-md-4">
+                            <input id="txtTitle" name="website" type="text" placeholder="your website" class="form-control input-md" value="{{ profile.website }}">
+                        </div>                
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtTitle">picture</label>
+                        <div class="col-md-4">
+					<div class="img-thumbnails"><img src="{{ profile.picture.url }}" width = "200" height = "200" class="img-thumbnail" alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera" />
+ 						<div style="max-width:470px;">
+                              <input type="file" style="margin-left:20%" placeholder="password" name="password" value= ""/>
+                        </div></div>
+ 						
+ 						</div>
+                    </div>              
+                
+                    <!-- Textarea -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="txtPost">Email</label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" id="txtPost" name="email" value="{{ user.username.email }}"></textarea>
+                        </div>
+                    </div>
+                             -->
+                    <!-- Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <div class="col-md-4">
+                            <input id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit" value="Update Profile" />
+                        </div>
+
+                    </div>
+ 
+                </fieldset>
+            </form>
+ 
+        </section>
+{% endblock %}

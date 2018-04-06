@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}About{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
+
+{% block body_block %}
+ <div class="page-header">
+    <h1>About</h1>
+        </div>
+		<button onClick="alert('I am Rango. Welcome on this Site. Glad you are Here.');">
+		       Welcome Message
+		</button>
+
+		<button id="about-btn"> Click Me </button>
+
+            <div>
+            <p></strong>.</p>
+            
+            <!--<div id="msg">Hello</div> -->
+
+            <img  width="400" height="400" src="{% static "img/ngr_map.png" %}" alt="Picture of Rango" /> <!-- New line -->
+            </div>
+	
+
+	<p>This is a example</p>
+
+
+{% endblock %}

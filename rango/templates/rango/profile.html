@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}About{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
+
+{% block body_block %}
+     
+
+{% if user.is_authenticated %}
+		<div class="page-header">
+		<h1>{{ user.username }} welcome to your profile page</h1>
+		</div>
+	    {% if updated %}
+			<strong>Your profile was updated.</strong>
+	    {% endif %}		
+        <img src="{{ profile.image_url|default_if_none:'#' }}" width = "200" height = "200" class="img-thumbnail" alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera" />
+        <h4>{{ profile.website }}</h4>
+        <h4>{{ user.email }}</h4>
+        
+        <a href="/rango/profile_edit/"><b>Edit Profile</b></a><br />
+{% endif %}
+    
+{% endblock %}

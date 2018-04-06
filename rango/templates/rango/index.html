@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Index{% endblock %}
+
+{% block body_block %}
+        
+{% if user.is_authenticated %}
+
+<h1 style="text-align: center; padding: 10px;">Rango Says.. Hello <span style="font-style: italic"; >{{ user.username|title }}!</span></h1>
+
+
+
+
+<a href="/rango/profile/" style = "position: absolute; right: 400px;" ><b>Go To Profile</b></a><br />
+
+
+
+
+
+{% else %} 
+<h1 style="background-color: silver; padding: 10px;">Rango says... Hello World!</h1>
+
+{% endif %}
+
+<div style="position: absolute; background: #; width: 380px;height:40px; min-height: 35%">
+        <h3>Categories</h3>
+        {% if categories %}
+            <ul>
+                {% for category in categories %}
+                <!-- Following line changed to add an HTML hyperlink -->
+                <li><a href="{% url 'category'  category.slug %}">{{ category.name }}</a></li> <!--"/rango/category/{{ category.slug }}" -->
+
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no categories present.</strong>
+        {% endif %}
+</div>
+<div style = "float: right; margin-right: 0px; background: #; width: 380px; height:165px;">
+        
+        <h3>Top 5 Most Viewed Pages</h3>
+        {% if pages %}
+            <ul>
+                {% for page in pages %}
+                <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+<style type="text/css">
+    li{ fo
+    }
+</style>
+</div>
+
+
+<div style="margin-top:200px">
+<div style="text-align: center"> visits: {{ visits }}</div>
+{% if user.is_authenticated %}
+
+<span style="font-size: 15pt; font:bold, Tahoma;"> 
+<h4 style="font:Arial; background:silver; padding:10px;">Registered users</h4>  
+   {% if userslist %}
+            <ul>
+                {% for user in userslist %}
+                <li style="list-style: none; font-size: 12pt;">{{ user|title }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+</span>
+    {% endif %}
+
+ </div>
+ {% endblock %}
+
+
+{% block javascript %}{% endblock %}
+ 
