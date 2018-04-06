@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from datetime import datetime
 from rango.bing_search import run_query
-from .processText import searchInPDF
+#from .processText import searchInPDF
 # Create your views here.
 
 def about(request):
