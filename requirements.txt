@@ -40,7 +40,7 @@ PyPDF2==1.26.0
 pypiwin32==219
 python-pptx==0.6.5
 pytz==2017.2
-PyYAML==3.12
+PyYAML==5.4
 requests==2.18.4
 shellescape==3.4.1
 six==1.10.0
