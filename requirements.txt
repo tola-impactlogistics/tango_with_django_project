@@ -34,7 +34,7 @@ nltk==3.2.5
 olefile==0.44
 Pillow==5.0.0
 pocketsphinx==0.1.3
-Pygments==2.2.0
+Pygments==2.7.4
 pyPdf==1.13
 PyPDF2==1.26.0
 pypiwin32==219
