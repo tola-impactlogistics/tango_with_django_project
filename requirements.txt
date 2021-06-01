@@ -47,7 +47,7 @@ six==1.10.0
 SpeechRecognition==3.6.3
 textract==1.6.1
 Twisted==17.9.0
-urllib3==1.22
+urllib3==1.26.5
 Werkzeug==0.14.1
 xlrd==1.0.0
 XlsxWriter==1.0.2
